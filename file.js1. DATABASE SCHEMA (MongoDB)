@@ -1,0 +1,83 @@
+// Users Collection
+{
+  _id: ObjectId,
+  email: String (unique),
+  password: String (hashed),
+  name: String,
+  phone: String,
+  addresses: [
+    {
+      type: String ('home', 'work'),
+      line1: String,
+      line2: String,
+      city: String,
+      state: String,
+      pincode: String,
+      isDefault: Boolean
+    }
+  ],
+  wishlist: [ProductId],
+  createdAt: Date,
+  isActive: Boolean
+}
+
+// Orders Collection
+{
+  _id: ObjectId,
+  orderId: String (JP-XXXXXXXX),
+  userId: ObjectId,
+  items: [
+    {
+      productId: String,
+      name: String,
+      price: Number,
+      size: String,
+      quantity: Number,
+      image: String
+    }
+  ],
+  shipping: {
+    name: String,
+    phone: String,
+    address: Object
+  },
+  payment: {
+    method: String,
+    gatewayOrderId: String,
+    razorpayPaymentId: String,
+    status: String ('pending', 'paid', 'failed'),
+    amount: Number
+  },
+  status: String ('confirmed', 'processing', 'shipped', 'delivered'),
+  timeline: [
+    {
+      status: String,
+      timestamp: Date,
+      note: String
+    }
+  ],
+  createdAt: Date
+}
+
+// Products Collection (migrate from frontend)
+{
+  _id: ObjectId,
+  productId: String,
+  name: String,
+  description: String,
+  price: Number,
+  originalPrice: Number,
+  category: String,
+  gender: String,
+  color: String,
+  images: [String],
+  sizes: [String],
+  inventory: {
+    'S/M': Number,
+    'M/L': Number,
+    'XL': Number,
+    'Free Size': Number
+  },
+  isActive: Boolean,
+  createdAt: Date
+}
