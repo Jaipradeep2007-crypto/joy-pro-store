@@ -1,3 +1,8 @@
-res.send('Orders API working');
-res.send('Payments API working');
-res.send('Products API working');
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+    res.send('Products API working ✅');
+});
+
+module.exports = router;
