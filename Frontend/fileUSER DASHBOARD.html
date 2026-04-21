@@ -1,0 +1,44 @@
+<!-- User Dashboard -->
+<div class="page" id="page-dashboard">
+  <div class="dashboard-container">
+    <div class="dashboard-sidebar">
+      <div class="user-profile">
+        <h3 id="userName">Loading...</h3>
+        <p id="userEmail">Loading...</p>
+      </div>
+      <nav class="dashboard-nav">
+        <a href="#" onclick="showDashboardTab('orders')" class="nav-item active">My Orders</a>
+        <a href="#" onclick="showDashboardTab('profile')" class="nav-item">Profile</a>
+        <a href="#" onclick="showDashboardTab('wishlist')" class="nav-item">Wishlist</a>
+        <a href="#" onclick="logout()" class="nav-item">Logout</a>
+      </nav>
+    </div>
+    
+    <div class="dashboard-content">
+      <!-- Orders Tab -->
+      <div id="orders-tab" class="tab-content active">
+        <h2>My Orders</h2>
+        <div id="ordersContainer">Loading...</div>
+      </div>
+      
+      <!-- Profile Tab -->
+      <div id="profile-tab" class="tab-content">
+        <h2>Profile</h2>
+        <div id="profileContainer">
+          <form onsubmit="updateProfile(event)">
+            <input type="text" id="profileName" placeholder="Name" required>
+            <input type="email" id="profileEmail" placeholder="Email" required>
+            <input type="tel" id="profilePhone" placeholder="Phone" required>
+            <button type="submit">Update Profile</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Wishlist Tab -->
+      <div id="wishlist-tab" class="tab-content">
+        <h2>Wishlist</h2>
+        <div id="wishlistContainer">Loading...</div>
+      </div>
+    </div>
+  </div>
+</div>
